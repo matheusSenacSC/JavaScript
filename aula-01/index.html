@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 01</title>
+  </head>
+  <body>
+    <h1
+      onmouseleave="emiteError()"
+      onmousemove="addTexto()"
+      onmousedown="alteraH1()"
+    >
+      Título
+    </h1>
+    <p>Olá, este é um texto</p>
+    <button onclick="emitirAlerta()">Clique aqui</button>
+    <br />
+    <input type="text" id="valor" name="valor" placeholder="Insira um valor" />
+    <button onmouseup="calcularTabuada()">Calcular</button>
+    <div id="tabuada"></div>
+    <script>
+      // const nome = prompt("Nome");
+      // const sobrenome = prompt("Sobrenome");
+      // console.log(`${nome} ${sobrenome}`);
+
+      const alteraH1 = function () {
+        const h1 = document.querySelector("h1");
+        h1.innerText = "Valor alterado!";
+      };
+
+      function emitirAlerta() {
+        console.log("Alerta");
+        console.error("Alerta");
+        console.info("Alerta");
+        console.table([1, 2, 3, 4]);
+      }
+
+      const emiteError = function () {
+        console.error("Isso é uma função de error.");
+      };
+
+      let adicionado;
+      function addTexto() {
+        if (adicionado) return;
+        const p = document.createElement("p");
+        p.textContent = "Texto adicionado.";
+        document.querySelector("p").insertAdjacentElement("afterend", p);
+        adicionado = true;
+      }
+
+      function calcularTabuada() {
+        const valor = document.querySelector("input").value;
+        tabuada(valor);
+      }
+
+      function tabuada(valor) {
+        const tabuada = document.getElementById("tabuada");
+        tabuada.innerHTML = "";
+        for (let i = 0; i <= 10; i++) {
+          tabuada.innerHTML += `<p>${i} x ${valor} = ${i * valor}</p>`;
+        }
+      }
+    </script>
+  </body>
+</html>
