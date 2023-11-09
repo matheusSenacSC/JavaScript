@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista</title>
+    <style>
+      header span {
+        font-size: 1.2rem;
+      }
+      header span:hover {
+        color: red;
+        cursor: crosshair;
+      }
+      header span:active {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span onclick="exibeVeiculos()">Veículos</span>
+      <span>Verduras</span>
+      <span>Legumes</span>
+    </header>
+    <div id="render"></div>
+    <script src="./js/vetor.js"></script>
+  </body>
+</html>

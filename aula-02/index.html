@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 02</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      form {
+        margin: 50px auto;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input {
+        padding: 8px;
+        margin-bottom: 10px;
+        width: 200px;
+        box-sizing: border-box;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button + button {
+        margin-left: 1rem;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="x">X</label>
+      <input type="number" name="x" id="x" />
+      <br />
+      <label for="y">Y</label>
+      <input type="number" name="y" id="y" />
+      <br />
+      <button onclick="somar()">Somar</button>
+      <button onclick="subtrair()">Subtrair</button>
+      <button onclick="multiplicar()">Multiplicar</button>
+      <button onclick="dividir()">Dividir</button>
+      <button onclick="restoDividir()">Dividir Resto</button>
+      <button onclick="elevar()">Potência</button>
+    </form>
+    <p id="res"></p>
+
+    <button onclick="limpar()" id="limpar">Limpar</button>
+    <script src="./js/math.js"></script>
+    <script>
+      document
+        .querySelector("form")
+        .addEventListener("submit", (event) => event.preventDefault());
+
+      const x = document.getElementById("x");
+      const y = document.getElementById("y");
+      const res = document.getElementById("res");
+
+      function somar() {
+        res.innerText = soma(x.value, y.value);
+        x.focus();
+      }
+
+      function subtrair() {
+        res.innerText = sub(x.value, y.value);
+        x.focus();
+      }
+
+      function multiplicar() {
+        res.innerText = mult(x.value, y.value);
+        x.focus();
+      }
+
+      function dividir() {
+        res.innerText = div(x.value, y.value);
+        x.focus();
+      }
+
+      function restoDividir() {
+        res.innerText = restoDivisao(x.value, y.value);
+        x.focus();
+      }
+
+      function elevar() {
+        res.innerText = potencia(x.value, y.value);
+        x.focus();
+      }
+
+      function limpar() {
+        res.innerText = "";
+        x.value = "";
+        y.value = "";
+      }
+    </script>
+  </body>
+</html>
